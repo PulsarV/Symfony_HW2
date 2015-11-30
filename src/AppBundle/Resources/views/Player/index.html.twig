@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title>ЄВРО 2016 - Перелік гравців команди</title>
-    <link href="/style/other.css" rel="stylesheet">
-</head>
-<body>
-    <h1>Чемпіонат Європи з футболу 2016</h1>
-    <h2>Перелік гравців команди</h2>
-    <ul>
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+    {{ ' - Players' }}
+{% endblock %}
+{% block header %}
+    {{ 'EURO 2016 players'}}
+{% endblock %}
+{% block body %}
+    <p>
+        {{ player.info }}
+    </p>
+{% endblock %}
+
         <li><a href="/player/view/CommandName/Shevchenko">Шевченко</a></li>
         <li><a href="/player/view/CommandName/Petrenko">Петренко</a></li>
         <li><a href="/player/view/CommandName/Gryschenko">Грищенко</a></li>

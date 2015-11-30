@@ -5,8 +5,21 @@ namespace AppBundle\Model;
 class Team
 {
     protected $name;
-    protected $info;
     protected $country;
+    protected $info;
+
+    /**
+     * Team constructor.
+     * @param $name
+     * @param $country
+     * @param $info
+     */
+    public function __construct($name, $country, $info)
+    {
+        $this->name = $name;
+        $this->country = $country;
+        $this->info = $info;
+    }
 
     /**
      * @return mixed
@@ -27,22 +40,6 @@ class Team
     /**
      * @return mixed
      */
-    public function getInfo()
-    {
-        return $this->info;
-    }
-
-    /**
-     * @param mixed $description
-     */
-    public function setDescription($info)
-    {
-        $this->info = $info;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getCountry()
     {
         return $this->country;
@@ -56,4 +53,19 @@ class Team
         $this->country = $country;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getInfo()
+    {
+        return $this->info;
+    }
+
+    /**
+     * @param mixed $info
+     */
+    public function setInfo($info)
+    {
+        $this->info = $info;
+    }
 }

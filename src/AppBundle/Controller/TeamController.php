@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Model\Team;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -9,6 +10,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class TeamController extends Controller
 {
+    private function createFakeTeam($country)
+    {
+        $faker = \Faker\Factory::create();
+        return new Team($country . 'national football team', $country, $faker->text(5000));
+    }
+
     /**
      * @Route("/team/view/{teamName}", requirements={"teamName": "[-A-Za-z]+"}, name="teamview")
      * @Method("GET")
@@ -16,16 +23,10 @@ class TeamController extends Controller
      */
     public function viewAction($teamName)
     {
-        return [];
-    }
-
-    /**
-     * @Route("/team/view/", name="teamindex")
-     * @Method("GET")
-     * @Template()
-     */
-    public function indexAction()
-    {
-        return [];
+        return [
+                'team' => $this->createFakeTeam($teamName),
+                'players' => '/player/view/',
+                'coachs' => '/coach/view/',
+               ];
     }
 }

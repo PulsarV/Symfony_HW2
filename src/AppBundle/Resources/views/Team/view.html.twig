@@ -1,33 +1,19 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title>ЄВРО 2016 - Інформація про команду</title>
-    <link href="/style/other.css" rel="stylesheet">
-</head>
-<body>
-    <h1>Чемпіонат Європи з футболу 2016</h1>
-    <h2>Інформація про команду</h2>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-        mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-        quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
-        rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
-        Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-        Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus
-        in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
-        Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
-        Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet
-        adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
-        Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam
-        quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet
-        nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+    {{ ' - ' }}
+    {{ team.name }}
+{% endblock %}
+{% block header %}{{ team.name }}{% endblock %}
+{% block body %}
+    <p>
+        {{ team.info }}
     </p>
-    <ul>
-        <li><a href="/coach/view/CommandName">Тренери</a></li>
-        <li><a href="/player/view/CommandName">Гравці</a></li>
-    </ul>
-    <br>
-    <a href="/">На головну</a>
-</body>
-</html>
+    <p>
+        <ul>
+            <li><a href="{{ players }}{{ team.country }}">Team players</a></li>
+            <li><a href="{{ coachs }}{{ team.country }}">Team coachs</a></li>
+        </ul>
+    </p>
+{% endblock %}
