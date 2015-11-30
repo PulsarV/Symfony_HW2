@@ -1,40 +1,13 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title>ЄВРО 2016 - Країни учасниці</title>
-    <link href="/style/other.css" rel="stylesheet">
-</head>
-<body>
-<h1>Чемпіонат Європи з футболу 2016</h1>
-<h2>Країни учасниці</h2>
-<ul>
-    <li><a href="Austria">Австрія</a></li>
-    <li><a href="Albania">Албанія</a></li>
-    <li><a href="England">Англія</a></li>
-    <li><a href="Belgium">Бельгія</a></li>
-    <li><a href="Ireland">Ірландія</a></li>
-    <li><a href="Iceland">Ісландія</a></li>
-    <li><a href="Spain">Іспанія</a></li>
-    <li><a href="Italy">Італія</a></li>
-    <li><a href="Germany">Німеччина</a></li>
-    <li><a href="NorthernIreland">Північна Ірландія</a></li>
-    <li><a href="Poland">Польща</a></li>
-    <li><a href="Portugal">Португалія</a></li>
-    <li><a href="Russia">Росія</a></li>
-    <li><a href="Romania">Румунія</a>
-    <li><a href="Slovakia">Словаччина</a></li>
-    <li><a href="Turkey">Турція</a></li>
-    <li><a href="Hungary">Угорщина</a></li>
-    <li><a href="Wales">Уельс</a></li>
-    <li><a href="Ukraine">Україна</a></li>
-    <li><a href="France">Франція</a></li>
-    <li><a href="Croatia">Хорватія</a></li>
-    <li><a href="CzechRepublic">Чехія</a></li>
-    <li><a href="Switzerland">Швейцарія</a></li>
-    <li><a href="Sweden">Швеція</a>
-</ul>
-<br>
-<a href="/">На головну</a>
-</body>
-</html>
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - Countries members
+{% endblock %}
+{% block header %}
+    Countries members
+{% endblock %}
+{% block content %}
+    {% for country in countries %}
+        <a class="btn btn-default col-lg-4" href="{{ countryRoute }}{{ country.team }}" role="button">{{ country.team }} national football team</a>
+    {% endfor %}
+{% endblock %}

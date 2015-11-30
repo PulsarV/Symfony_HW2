@@ -16,6 +16,10 @@ class IndexController extends Controller
      */
     public function indexAction()
     {
-        return [];
+        return ['countries' => ['Albania', 'Austria', 'Belgium', 'Croatia', 'Czech Republic', 'England', 'France',
+            'Germany', 'Hungary', 'Iceland', 'Ireland', 'Italy', 'Northern Ireland', 'Poland', 'Portugal', 'Romania',
+            'Russia', 'Slovakia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Ukraine', 'Wales',
+            ]
+        ];
     }
 }

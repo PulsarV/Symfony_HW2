@@ -1,54 +1,19 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title>ЄВРО 2016</title>
-    <link href="/style/index.css" rel="stylesheet">
-</head>
-<body>
-    <h1>Чемпіонат Європи з футболу 2016</h1>
-    <h2>Перелік команд, що пройшли у фінальний турнір</h2>
-    <table width="600px">
-        <tr>
-            <td><a href="country/view/Austria"><img src="/images/Austria.png"></a>&nbsp;&nbsp;<a href="team/view/Austria">Австрія</a></td>
-            <td><a href="country/view/Germany"><img src="/images/Germany.png"></a>&nbsp;&nbsp;<a href="team/view/Germany">Німеччина</a></td>
-            <td><a href="country/view/Hungary"><img src="/images/Hungary.png"></a>&nbsp;&nbsp;<a href="team/view/Hungary">Угорщина</a></td>
-        </tr>
-        <tr>
-            <td><a href="country/view/Albania"><img src="/images/Albania.png"></a>&nbsp;&nbsp;<a href="team/view/Albania">Албанія</a></td>
-            <td><a href="country/view/NorthernIreland"><img src="/images/NorthernIreland.png"></a>&nbsp;&nbsp;<a href="team/view/NorthernIreland">Північна Ірландія</a></td>
-            <td><a href="country/view/Wales"><img src="/images/Wales.png"></a>&nbsp;&nbsp;<a href="team/view/Wales">Уельс</a></td>
-        </tr>
-        <tr>
-            <td><a href="country/view/England"><img src="/images/England.png"></a>&nbsp;&nbsp;<a href="team/view/England">Англія</a></td>
-            <td><a href="country/view/Poland"><img src="/images/Poland.png"></a>&nbsp;&nbsp;<a href="team/view/Poland">Польща</a></td>
-            <td><a href="country/view/Ukraine"><img src="/images/Ukraine.png"></a>&nbsp;&nbsp;<a href="team/view/Ukraine">Україна</a></td>
-        </tr>
-        <tr>
-            <td><a href="country/view/Belgium"><img src="/images/Belgium.png"></a>&nbsp;&nbsp;<a href="team/view/Belgium">Бельгія</a></td>
-            <td><a href="country/view/Portugal"><img src="/images/Portugal.png"></a>&nbsp;&nbsp;<a href="team/view/Portugal">Португалія</a></td>
-            <td><a href="country/view/France"><img src="/images/France.png"></a>&nbsp;&nbsp;<a href="team/view/France">Франція</a></td>
-        </tr>
-        <tr>
-            <td><a href="country/view/Ireland"><img src="/images/Ireland.png"></a>&nbsp;&nbsp;<a href="team/view/Ireland">Ірландія</a></td>
-            <td><a href="country/view/Russia"><img src="/images/Russia.png"></a>&nbsp;&nbsp;<a href="team/view/Russia">Росія</a></td>
-            <td><a href="country/view/Croatia"><img src="/images/Croatia.png"></a>&nbsp;&nbsp;<a href="team/view/Croatia">Хорватія</a></td>
-        </tr>
-        <tr>
-            <td><a href="country/view/Iceland"><img src="/images/Iceland.png"></a>&nbsp;&nbsp;<a href="team/view/Iceland">Ісландія</a></td>
-            <td><a href="country/view/Romania"><img src="/images/Romania.png"></a>&nbsp;&nbsp;<a href="team/view/Romania">Румунія</a></td>
-            <td><a href="country/view/CzechRepublic"><img src="/images/CzechRepublic.png"></a>&nbsp;&nbsp;<a href="team/view/CzechRepublic">Чехія</a></td>
-        </tr>
-        <tr>
-            <td><a href="country/view/Spain"><img src="/images/Spain.png"></a>&nbsp;&nbsp;<a href="team/view/Spain">Іспанія</a></td>
-            <td><a href="country/view/Slovakia"><img src="/images/Slovakia.png"></a>&nbsp;&nbsp;<a href="team/view/Slovakia">Словаччина</a></td>
-            <td><a href="country/view/Switzerland"><img src="/images/Switzerland.png"></a>&nbsp;&nbsp;&nbsp;<a href="team/view/Switzerland">Швейцарія</a></td>
-        </tr>
-        <tr>
-            <td><a href="country/view/Italy"><img src="/images/Italy.png"></a>&nbsp;&nbsp;<a href="team/view/Italy">Італія</a></td>
-            <td><a href="country/view/Turkey"><img src="/images/Turkey.png"></a>&nbsp;&nbsp;<a href="team/view/Turkey">Турція</a></td>
-            <td><a href="country/view/Sweden"><img src="/images/Sweden.png"></a>&nbsp;&nbsp;<a href="team/view/Sweden">Швеція</a></td>
-        </tr>
-    </table>
-</body>
-</html>
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+    {{ ' - Qualification' }}
+{% endblock %}
+{% block header %}Qualification{% endblock %}
+{% block content %}
+    <div class="content  col-lg-offset-4 col-lg-4">
+        <table class="table table-bordered text-center">
+            {% for country in countries %}
+                <tr>
+                    <td class="column col-md-1"><a href="country/view/{{ country }}"><img src="{{ asset("images/#{country}.png") }}"></a></td>
+                    <td><a href="team/view/{{ country }}">{{ country }}</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
