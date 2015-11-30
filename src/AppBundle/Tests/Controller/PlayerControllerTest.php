@@ -11,7 +11,7 @@ class PlayerControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/player/view/Ukraine');
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Перелік гравців команди', $crawler->filter('h2')->text());
+        $this->assertContains('Ukraine national football team players', $crawler->filter('h1')->text());
 
         $client->request('GET', '/player/view/');
         $this->assertEquals(404, $client->getResponse()->getStatusCode());
@@ -19,7 +19,7 @@ class PlayerControllerTest extends WebTestCase
         $client->request('GET', '/player/');
         $this->assertEquals(404, $client->getResponse()->getStatusCode());
 
-        $client->request('GET', '/player/view/Ukraine-Ukraine');
+        $client->request('GET', "/player/view/Ukraine-Ukraine Ukraine.Ukraine'");
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
         $client->request('GET', '/player/view/Ukraine1');
@@ -31,15 +31,15 @@ class PlayerControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/player/view/Ukraine/Shevchenko');
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Інформація про гравця', $crawler->filter('h2')->text());
+        $this->assertContains('Player info Shevchenko (Ukraine)', $crawler->filter('h1')->text());
 
-        $client->request('GET', '/player/view/Ukraine/Shevchenko-Petrenko');
+        $client->request('GET', "/player/view/Ukraine/Shevchenko-Petrenko Motrenko.Salogub'");
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
-        $client->request('GET', '/player/view/Ukraine/Shewchenko1');
+        $client->request('GET', '/player/view/Ukraine/Shevchenko1');
         $this->assertEquals(404, $client->getResponse()->getStatusCode());
 
-        $client->request('GET', '/player/view/Ukraine/Shewchenko/');
+        $client->request('GET', '/player/view/Ukraine/Shevchenko/');
         $this->assertEquals(404, $client->getResponse()->getStatusCode());
     }
 }

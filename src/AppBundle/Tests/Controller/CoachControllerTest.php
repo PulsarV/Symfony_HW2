@@ -11,7 +11,7 @@ class CoachControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/coach/view/Ukraine');
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Перелік тренерів команди', $crawler->filter('h2')->text());
+        $this->assertContains('Ukraine national football team coachs', $crawler->filter('h1')->text());
 
         $client->request('GET', '/coach/view/');
         $this->assertEquals(404, $client->getResponse()->getStatusCode());
@@ -19,7 +19,7 @@ class CoachControllerTest extends WebTestCase
         $client->request('GET', '/coach/');
         $this->assertEquals(404, $client->getResponse()->getStatusCode());
 
-        $client->request('GET', '/coach/view/Ukraine-Ukraine');
+        $client->request('GET', "/coach/view/Ukraine-Ukraine Ukraine.Ukraine'");
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
         $client->request('GET', '/coach/view/Ukraine1');
@@ -31,9 +31,9 @@ class CoachControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/coach/view/Ukraine/Shevchenko');
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Інформація про тренера', $crawler->filter('h2')->text());
+        $this->assertContains('Coach info Shevchenko (Ukraine)', $crawler->filter('h1')->text());
 
-        $client->request('GET', '/coach/view/Ukraine/Shevchenko-Petrenko');
+        $client->request('GET', "/coach/view/Ukraine/Shevchenko-Petrenko Motrenko.Salogub'");
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
         $client->request('GET', '/coach/view/Ukraine/Shewchenko1');
