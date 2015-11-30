@@ -6,10 +6,8 @@
 {% block header %}
     {{ players[0].team }} national football team players
 {% endblock %}
-{% block body %}
-    <ul>
-        {% for player in players %}
-            <li><a href="{{ playerRoute }}/{{ player.name }}">{{ player.name }}</a></li>
-        {% endfor %}
-    </ul>
+{% block content %}
+    {% for player in players %}
+        <a class="btn btn-default col-lg-3" href="{{ playerRoute }}/{{ player.name }}" role="button">{{ player.name }}</a>
+    {% endfor %}
 {% endblock %}

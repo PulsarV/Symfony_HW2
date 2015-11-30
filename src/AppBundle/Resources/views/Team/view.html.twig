@@ -4,14 +4,10 @@
     {{ parent() }} - {{ team.name }}  national football team
 {% endblock %}
 {% block header %}{{ team.name }} national football team{% endblock %}
-{% block body %}
+{% block content %}
+    {{ team.info }}
     <p>
-        {{ team.info }}
-    </p>
-    <p>
-        <ul>
-            <li><a href="{{ playersRoute }}{{ team.name }}">Team players</a></li>
-            <li><a href="{{ coachsRoute }}{{ team.name }}">Team coachs</a></li>
-        </ul>
+        <p><a class="btn btn-default" href="{{ playersRoute }}{{ team.name }}" role="button">Team players</a></p>
+        <p><a class="btn btn-default" href="{{ coachsRoute }}{{ team.name }}" role="button">Team coachs</a></p>
     </p>
 {% endblock %}

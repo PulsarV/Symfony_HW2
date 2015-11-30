@@ -6,10 +6,8 @@
 {% block header %}
     Countries members
 {% endblock %}
-{% block body %}
-    <ul>
-        {% for country in countries %}
-            <li><a href="{{ countryRoute }}{{ country.team }}">{{ country.team }} national football team</a></li>
-        {% endfor %}
-    </ul>
+{% block content %}
+    {% for country in countries %}
+        <a class="btn btn-default col-lg-4" href="{{ countryRoute }}{{ country.team }}" role="button">{{ country.team }} national football team</a>
+    {% endfor %}
 {% endblock %}

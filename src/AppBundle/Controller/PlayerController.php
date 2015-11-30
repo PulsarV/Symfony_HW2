@@ -44,7 +44,7 @@ class PlayerController extends Controller
     public function indexAction($teamName)
     {
         return [
-                'players' => $this->createFakePlayer(30, $teamName),
+                'players' => $this->createFakePlayer(32, $teamName),
                 'playerRoute' => '/player/view/' . $teamName,
                ];
     }

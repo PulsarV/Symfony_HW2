@@ -6,8 +6,6 @@
 {% block header %}
     Player info {{ players[0].name }} ({{ players[0].team }})
 {% endblock %}
-{% block body %}
-    <p>
-        {{ players[0].info }}
-    </p>
+{% block content %}
+    {{ players[0].info }}
 {% endblock %}

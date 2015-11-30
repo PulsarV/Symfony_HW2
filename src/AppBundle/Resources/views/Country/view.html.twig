@@ -6,13 +6,9 @@
 {% block header %}
     Country info {{ countries[0].name }}
 {% endblock %}
-{% block body %}
+{% block content %}
+    {{ countries[0].info }}
     <p>
-        {{ countries[0].info }}
-    </p>
-    <p>
-        <ul>
-            <li><a href="{{ teamRoute }}{{ countries[0].team }}">{{ countries[0].team }} national football team</a></li>
-        </ul>
+        <p><a class="btn btn-default"  href="{{ teamRoute }}{{ countries[0].team }}" role="button">{{ countries[0].team }} national football team</a></p>
     </p>
 {% endblock %}

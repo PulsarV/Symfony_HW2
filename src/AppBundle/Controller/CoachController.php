@@ -44,7 +44,7 @@ class CoachController extends Controller
     public function indexAction($teamName)
     {
         return [
-                'coachs' => $this->createFakeCoach(5, $teamName),
+                'coachs' => $this->createFakeCoach(4, $teamName),
                 'coachRoute' => '/coach/view/' . $teamName,
                ];
     }
