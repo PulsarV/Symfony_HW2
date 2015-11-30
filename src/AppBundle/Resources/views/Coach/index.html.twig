@@ -1,22 +1,15 @@
+{% extends '::base.html.twig' %}
 
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title>ЄВРО 2016 - Перелік тренерів команди</title>
-    <link href="/style/other.css" rel="stylesheet">
-</head>
-<body>
-    <h1>Чемпіонат Європи з футболу 2016</h1>
-    <h2>Перелік тренерів команди</h2>
+{% block title %}
+    {{ parent() }} - {{ coachs[0].team }} national football team coachs
+{% endblock %}
+{% block header %}
+    {{ coachs[0].team }} national football team coachs
+{% endblock %}
+{% block body %}
     <ul>
-        <li><a href="/coach/view/CommandName/Kravchuk">Кравчук</a></li>
-        <li><a href="/coach/view/CommandName/Marchuk">Марчук</a></li>
-        <li><a href="/coach/view/CommandName/Onopenko">Онопенко</a></li>
-        <li><a href="/coach/view/CommandName/Medvedchuk">Медведчук</a></li>
-        <li><a href="/coach/view/CommandName/Surkis">Суркіс</a></li>
+        {% for coach in coachs %}
+            <li><a href="{{ coachRoute }}/{{ coach.name }}">{{ coach.name }}</a></li>
+        {% endfor %}
     </ul>
-    <br>
-    <a href="/">На головну</a>
-</body>
-</html>
+{% endblock %}

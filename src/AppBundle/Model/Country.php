@@ -5,9 +5,21 @@ namespace AppBundle\Model;
 class Country
 {
     protected $name;
-    protected $flag;
-    protected $info;
     protected $team;
+    protected $info;
+
+    /**
+     * Country constructor.
+     * @param $name
+     * @param $team
+     * @param $info
+     */
+    public function __construct($name, $team, $info)
+    {
+        $this->name = $name;
+        $this->team = $team;
+        $this->info = $info;
+    }
 
     /**
      * @return mixed
@@ -28,38 +40,6 @@ class Country
     /**
      * @return mixed
      */
-    public function getFlag()
-    {
-        return $this->flag;
-    }
-
-    /**
-     * @param mixed $flag
-     */
-    public function setFlag($flag)
-    {
-        $this->flag = $flag;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getInfo()
-    {
-        return $this->info;
-    }
-
-    /**
-     * @param mixed $description
-     */
-    public function setInfo($info)
-    {
-        $this->info = $info;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getTeam()
     {
         return $this->team;
@@ -71,5 +51,21 @@ class Country
     public function setTeam($team)
     {
         $this->team = $team;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInfo()
+    {
+        return $this->info;
+    }
+
+    /**
+     * @param mixed $info
+     */
+    public function setInfo($info)
+    {
+        $this->info = $info;
     }
 }

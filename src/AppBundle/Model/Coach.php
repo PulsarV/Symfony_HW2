@@ -7,7 +7,19 @@ class Coach
     protected $name;
     protected $team;
     protected $info;
-    protected $id;
+
+    /**
+     * Coach constructor.
+     * @param $name
+     * @param $team
+     * @param $info
+     */
+    public function __construct($name, $team, $info)
+    {
+        $this->name = $name;
+        $this->team = $team;
+        $this->info = $info;
+    }
 
     /**
      * @return mixed
@@ -55,21 +67,5 @@ class Coach
     public function setInfo($info)
     {
         $this->info = $info;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
     }
 }

@@ -17,7 +17,7 @@ class TeamController extends Controller
     }
 
     /**
-     * @Route("/team/view/{teamName}", requirements={"teamName": "[-A-Za-z]+"}, name="teamview")
+     * @Route("/team/view/{teamName}", requirements={"teamName": "[-A-Za-z\x20\.\']+"}, name="teamview")
      * @Method("GET")
      * @Template()
      */
