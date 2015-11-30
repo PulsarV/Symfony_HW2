@@ -1,4 +1,4 @@
-Symfony Homework #2 [![Build Status](https://travis-ci.org/PulsarV/Symfony_HW2.svg?branch=master)](https://travis-ci.org/PulsarV/Symfony_HW2)
+Symfony Homework #2 [![Master](https://travis-ci.org/PulsarV/Symfony_HW2.svg?branch=master)](https://travis-ci.org/PulsarV/Symfony_HW2) [![Develop](https://travis-ci.org/PulsarV/Symfony_HW2.svg?branch=develop)](https://travis-ci.org/PulsarV/Symfony_HW2)
 ===================
 
 Author:  Volodymyr Kravchuk  
