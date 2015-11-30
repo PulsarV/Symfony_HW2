@@ -1,19 +1,13 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-    {{ parent() }}
-    {{ ' - Player info: ' }}
-    {{ players.name }}
+    {{ parent() }} - Player info: {{ players[0].name }}
 {% endblock %}
 {% block header %}
-    {{ 'Player info: '}}
-    {{ players.name }}
-    {{ ' (' }}
-    {{ players.team }}
-    {{ ')' }}
+    Player info {{ players[0].name }} ({{ players[0].team }})
 {% endblock %}
 {% block body %}
     <p>
-        {{ players.info }}
+        {{ players[0].info }}
     </p>
 {% endblock %}

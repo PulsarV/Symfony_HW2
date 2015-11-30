@@ -15,10 +15,12 @@ class PlayerController extends Controller
         $faker = \Faker\Factory::create();
         $players = [];
         for ($i = 0; $i < $count; $i++) {
-            if ($team && $team) {
-                $players = new Player($faker->name, $team , $faker->text(5000));
+            if ($team && $player) {
+                $players[] = new Player($player, $team , $faker->text(5000));
+            } elseif ($team) {
+                $players[] = new Player($faker->name, $team , $faker->text(5000));
             } else {
-                $players = new Player($player, $faker->country . ' national football team' , $faker->text(5000));
+                $players[] = new Player($faker->name, $faker->country , $faker->text(5000));
             }
         }
         return $players;
@@ -31,11 +33,14 @@ class PlayerController extends Controller
      */
     public function indexAction($teamName)
     {
-        return ['players' => $this->createFakePlayer(30)];
+        return [
+                'players' => $this->createFakePlayer(30, $teamName),
+                'playerRoute' => '/player/view/' . $teamName,
+               ];
     }
 
     /**
-     * @Route("/player/view/{teamName}/{playerName}", requirements={"teamName": "[-A-Za-z]+", "playerName": "[-A-Za-z]+"}, name="playerview")
+     * @Route("/player/view/{teamName}/{playerName}", requirements={"teamName": "[-A-Za-z]+", "playerName": "[-A-Za-z\x20\.\']+"}, name="playerview")
      * @Method("GET")
      * @Template()
      */

@@ -13,7 +13,7 @@ class TeamController extends Controller
     private function createFakeTeam($country)
     {
         $faker = \Faker\Factory::create();
-        return new Team($country . 'national football team', $country, $faker->text(5000));
+        return new Team($country, $country, $faker->text(5000));
     }
 
     /**
@@ -25,8 +25,8 @@ class TeamController extends Controller
     {
         return [
                 'team' => $this->createFakeTeam($teamName),
-                'players' => '/player/view/',
-                'coachs' => '/coach/view/',
+                'playersRoute' => '/player/view/',
+                'coachsRoute' => '/coach/view/',
                ];
     }
 }

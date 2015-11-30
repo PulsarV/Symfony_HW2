@@ -1,34 +1,15 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-    {{ parent() }}
-    {{ ' - Players' }}
+    {{ parent() }} - {{ players[0].team }} national football team players
 {% endblock %}
 {% block header %}
-    {{ 'EURO 2016 players'}}
+    {{ players[0].team }} national football team players
 {% endblock %}
 {% block body %}
-    <p>
-        {{ player.info }}
-    </p>
-{% endblock %}
-
-        <li><a href="/player/view/CommandName/Shevchenko">Шевченко</a></li>
-        <li><a href="/player/view/CommandName/Petrenko">Петренко</a></li>
-        <li><a href="/player/view/CommandName/Gryschenko">Грищенко</a></li>
-        <li><a href="/player/view/CommandName/Vitrenko">Вітренко</a></li>
-        <li><a href="/player/view/CommandName/Grytsenko">Гриценко</a></li>
-        <li><a href="/player/view/CommandName/Olefirenko">Олефіренко</a></li>
-        <li><a href="/player/view/CommandName/Yevtushenko">Євтушенко</a></li>
-        <li><a href="/player/view/CommandName/Kononenko">Кононенко</a></li>
-        <li><a href="/player/view/CommandName/Majorenko">Майоренко</a></li>
-        <li><a href="/player/view/CommandName/Antushenko">Антушенко</a></li>
-        <li><a href="/player/view/CommandName/Demydenko">Демиденко</a></li>
-        <li><a href="/player/view/CommandName/Zapasnenko">Запасненко</a></li>
-        <li><a href="/player/view/CommandName/Rezervenko">Резервенко</a></li>
-        <li><a href="/player/view/CommandName/Napidhvatchenko">Напідхватченко</a></li>
+    <ul>
+        {% for player in players %}
+            <li><a href="{{ playerRoute }}/{{ player.name }}">{{ player.name }}</a></li>
+        {% endfor %}
     </ul>
-    <br>
-    <a href="/">На головну</a>
-</body>
-</html>
+{% endblock %}
