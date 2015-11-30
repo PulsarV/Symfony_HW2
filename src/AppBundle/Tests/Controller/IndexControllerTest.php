@@ -11,6 +11,6 @@ class IndexControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Qualifying tournament', $crawler->filter('h1')->text());
+        $this->assertContains('Qualification', $crawler->filter('h1')->text());
     }
 }
